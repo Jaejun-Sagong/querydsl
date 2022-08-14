@@ -11,4 +11,6 @@ public interface MemberRepositoryCustom {
     List<MemberTeamDto> search(MemberSearchCondition condition);
     Page<MemberTeamDto> searchPageSimple(MemberSearchCondition condition, Pageable pageable);  //spring data domain pagable
     Page<MemberTeamDto> searchPageComplex(MemberSearchCondition condition, Pageable pageable);
+
+    Page<MemberTeamDto> usePageableExecutionUtils(MemberSearchCondition condition, Pageable pageable);
 }

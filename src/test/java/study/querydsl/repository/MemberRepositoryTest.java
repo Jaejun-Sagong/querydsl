@@ -62,6 +62,7 @@ class MemberRepositoryTest {
         assertThat(result).extracting("username").containsExactly("member4");
     }
 
+
     @Test
     public void searchPageSimple() {
         Team teamA = new Team("teamA");
@@ -77,8 +78,11 @@ class MemberRepositoryTest {
         em.persist(member3);
         em.persist(member4);
         MemberSearchCondition condition = new MemberSearchCondition();
+
         PageRequest pageRequest = PageRequest.of(0, 3);
+
         Page<MemberTeamDto> result = memberRepository.searchPageSimple(condition, pageRequest);
+
         assertThat(result.getSize()).isEqualTo(3);
         assertThat(result.getContent()).extracting("username").containsExactly("member1","member2","member3"); //page 0부터 3개를 뽑았기 때문
     }
